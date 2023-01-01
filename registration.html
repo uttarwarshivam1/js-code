@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration form </title>
+    <style>
+        body {
+            padding: 10px 50px;
+        }
+
+        .formdesign {
+            font-size: 20px;
+        }
+
+        .formdesign input {
+            width: 40%;
+            padding: 10px 12px;
+            font-size: larger;
+            border-color: crimson;
+        }
+
+        .formerror {
+            color: red;
+        }
+        .but{
+            color: blueviolet;
+            width : 100px;
+            height: 30px;
+            font-size: larger;         
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Welcome to Registration form</h1>
+    <form action="/myaction.php" name="myForm" onsubmit="return validateform()" method="post">
+        <div class="formdesign" id="name">
+            Name : <input type="text" name=" fname" ><span class="formerror"></span>
+        </div><br>
+        <div class="formdesign" id="email">
+            Email : <input type="email" name="femail" ><span class="formerror"></span>
+        </div><br>
+        <div class="formdesign" id="phone">
+            Contact Number  : <input type="number" name="fphone" ><span class="formerror"></span>
+        </div><br>
+        <div class="formdesign" id="password">
+            Password : <input type="password" name="fpassword" ><span class="formerror"></span>
+        </div><br> 
+        <div class="formdesign" id="conpass">
+    Confirm Password : <input type="password" name="fconpass" ><span class="formerror"></span>
+            </div><br>
+            <input class="but" type="submit" value="Submit">
+    </form>
+    
+
+</body>
+<script>
+    function seterror(id,error)
+    {
+           element = document.getElementById(id);
+           element.getElementsByClassName('formerror')[0].innerHTML=error;
+    }
+
+    function validateform(){
+         var returnv=true;      
+        var name=document.forms['myForm']["fname"].value; 
+        if(name.length ==0)
+        {
+                  seterror("name","Length of name is too short");
+                  returnv=false;
+        } 
+    return returnv;
+    }
+
+    //     var email=document.forms["myform"]["femail"].value; 
+    //     if(email.length>15)
+    //     {
+    //                seterror("email",  " length of email is too long");
+    //                returnval=false;
+    //     } 
+                
+        
+    //     return returnval;
+    // }
+
+</script>
+
+</html>
